@@ -30,7 +30,7 @@ public class Tests2
     public void TestMul()
     {
         var result = TestLib.Mul(4, 5);
-        Assert.That(result, Is.EqualTo(20))
+        Assert.That(result, Is.EqualTo(20));
     }
 }
 
