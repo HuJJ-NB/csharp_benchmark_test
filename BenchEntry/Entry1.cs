@@ -3,7 +3,7 @@ using System.Reflection;
 
 public class Tests
 {
-    public int Mul(int a, int b)
+    public static int Mul(int a, int b)
     {
         return a * b;
     }
