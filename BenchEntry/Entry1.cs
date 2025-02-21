@@ -23,14 +23,14 @@ public class Tests2
     [Test]
     public void TestAddition()
     {
-        var result2 = TestLib.Add(4, 5);
-        Assert.AreEqual(9, result2);
+        var result = TestLib.Add(4, 5);
+        Assert.That(result, Is.EqualTo(9));
     }
     [Test]
     public void TestMul()
     {
-        var result1 = TestLib.Mul(4, 5);
-        Assert.AreEqual(20, result1);
+        var result = TestLib.Mul(4, 5);
+        Assert.That(result, Is.EqualTo(20))
     }
 }
 
