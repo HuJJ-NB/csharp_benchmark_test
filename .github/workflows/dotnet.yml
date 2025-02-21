@@ -29,10 +29,10 @@ jobs:
       uses: EasyDesk/action-dotnet-build@v1.0.0
       with:
         path: bench # optional, default is .
+  
     - name: T
       uses: EasyDesk/action-dotnet-test@v1.0.0
       with:
         path: bench # optional, default is .
-        skip-build: true # optional, default is true
-        test-args: -v d
+        test-args: -v n
 
