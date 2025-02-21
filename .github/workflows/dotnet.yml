@@ -22,9 +22,8 @@ jobs:
         
     - name: new
       run: |
-        dotnet new nunit -n benchTmp
-        cp BenchEntry/*.cs benchTmp
-        tree .
+        dotnet new nunit -n bench
+        cp BenchEntry/*.cs bench
           
     - name: T
       uses: EasyDesk/action-dotnet-test@v1.0.0
