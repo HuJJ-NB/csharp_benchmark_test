@@ -10,38 +10,41 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-
+  pre1:
     runs-on: ubuntu-latest
+    steps:
+    - run: echo "123" > 123
+    
+  pre2:
+    runs-on: ubuntu-latest
+    steps:
+    - run: echo "456" > 456
 
+  last:
+    runs-on: ubuntu-latest
+    needs:
+    - pre1
+    - pre2
+    steps:
+    - run: ls
+      
+  build:
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
-    # - name: Setup .NET
-    #   uses: actions/setup-dotnet@v4
-    #   with:
-    #     dotnet-version: 8.0.x
     - name: Setup .NET Core SDK
       uses: actions/setup-dotnet@v4.3.0
       with:
-        # Optional SDK version(s) to use. If not provided, will install global.json version when available. Examples: 2.2.104, 3.1, 3.1.x, 3.x, 6.0.2xx
         dotnet-version: 8.0.x
+        
     - name: new
       run: |
         dotnet new nunit -n benchTmp
-        tree .
         cp BenchEntry/*.cs benchTmp
-        tree benchTmp
-        cat benchTmp/UnitTest1.cs
           
     - name: T
       uses: EasyDesk/action-dotnet-test@v1.0.0
       with:
-      #   # Additional arguments to pass to 'dotnet test'.
-      #   test-args: # optional
-      #   # The build configuration to use (defaults to 'Release').
-      #   build-configuration: # optional, default is Release
-      #   # The path to the project or solution to test (defaults to the current directory).
-        path: benchTmp # optional, default is .
-      #   # Whether or not to skip the build using the '--no-build' flag (defaults to true).
+        path: bench # optional, default is .
         skip-build: false # optional, default is true
