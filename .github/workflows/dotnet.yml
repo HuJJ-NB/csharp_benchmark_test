@@ -13,9 +13,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Code
+    - name: Prepare  -  Checkout Code
       uses: actions/checkout@v4
-    - name: Setup .NET Core SDK
+    - name: Prepare  -  Setup .NET Core SDK
       uses: actions/setup-dotnet@v4.3.0
       with:
         dotnet-version: 8.0.x
@@ -25,12 +25,11 @@ jobs:
         dotnet new nunit -n bench
         cp BenchEntry/*.cs bench
           
-    - name: B
+    - name: Test  -  Build BenchMark
       uses: EasyDesk/action-dotnet-build@v1.0.0
       with:
         path: bench # optional, default is .
-  
-    - name: T
+    - name: Test  -  Run BenchMark
       uses: EasyDesk/action-dotnet-test@v1.0.0
       with:
         path: bench # optional, default is .
