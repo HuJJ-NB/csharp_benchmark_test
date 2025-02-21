@@ -36,7 +36,7 @@ jobs:
       uses: EasyDesk/action-dotnet-build@v1.0.0
       with:
         path: bench # optional, default is .
-        build-args: --lib build/Output
+        build-args: /lib:build/Output
     - name: Test  -  Run BenchMark
       uses: EasyDesk/action-dotnet-test@v1.0.0
       with:
