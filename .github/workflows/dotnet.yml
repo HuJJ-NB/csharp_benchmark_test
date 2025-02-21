@@ -25,10 +25,14 @@ jobs:
         dotnet new nunit -n bench
         cp BenchEntry/*.cs bench
           
+    - name: B
+      uses: EasyDesk/action-dotnet-build@v1.0.0
+      with:
+        path: bench # optional, default is .
     - name: T
       uses: EasyDesk/action-dotnet-test@v1.0.0
       with:
         path: bench # optional, default is .
-        skip-build: false # optional, default is true
+        skip-build: true # optional, default is true
         test-args: -v d
 
