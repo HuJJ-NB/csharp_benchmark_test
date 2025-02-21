@@ -1,17 +1,6 @@
 namespace benchTmp;
 
-public class TestLib
-{
-    public static int Mul(int a, int b)
-    {
-        return a * b;
-    }
-
-    public static int Add(int a, int b)
-    {
-        return a + b;
-    }
-}
+using TestForAddMul;
 
 [TestFixture]
 public class Tests2
@@ -23,13 +12,13 @@ public class Tests2
     [Test]
     public void TestAddition()
     {
-        var result = TestLib.Add(4, 5);
+        var result = AddMul.Add(4, 5);
         Assert.That(result, Is.EqualTo(9));
     }
     [Test]
     public void TestMul()
     {
-        var result = TestLib.Mul(4, 5);
+        var result = AddMul.Mul(4, 5);
         Assert.That(result, Is.EqualTo(20));
     }
 }
