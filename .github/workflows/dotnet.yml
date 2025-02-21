@@ -25,22 +25,23 @@ jobs:
         dotnet new nunit -n bench
         cp BenchEntry/*.cs bench
         tree
+        cat bench/bench.csproj
 
-    - name: Run  -  Opt
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y mono-complete
-        mkdir -p build/Output
-        mcs /target:library /out:build/Output/test1.dll testcase/test1.cs
+    # - name: Run  -  Opt
+    #   run: |
+    #     sudo apt-get update
+    #     sudo apt-get install -y mono-complete
+    #     mkdir -p build/Output
+    #     mcs /target:library /out:build/Output/test1.dll testcase/test1.cs
         
-    - name: Test  -  Build BenchMark
-      uses: EasyDesk/action-dotnet-build@v1.0.0
-      with:
-        path: bench # optional, default is .
-        build-args: --reference build/Output/test1.dll
-    - name: Test  -  Run BenchMark
-      uses: EasyDesk/action-dotnet-test@v1.0.0
-      with:
-        path: bench # optional, default is .
-        test-args: -v n
+    # - name: Test  -  Build BenchMark
+    #   uses: EasyDesk/action-dotnet-build@v1.0.0
+    #   with:
+    #     path: bench # optional, default is .
+    #     build-args: --reference build/Output/test1.dll
+    # - name: Test  -  Run BenchMark
+    #   uses: EasyDesk/action-dotnet-test@v1.0.0
+    #   with:
+    #     path: bench # optional, default is .
+    #     test-args: -v n
 
