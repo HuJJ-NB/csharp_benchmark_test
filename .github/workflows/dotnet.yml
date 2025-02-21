@@ -29,9 +29,6 @@ jobs:
     - name: new
       run: |
         dotnet new nunit -n bench
-        cd bench
-        dotnet build
-        ls -la
           
     - name: T
       uses: EasyDesk/action-dotnet-test@v1.0.0
@@ -43,4 +40,4 @@ jobs:
       #   # The path to the project or solution to test (defaults to the current directory).
         path: bench # optional, default is .
       #   # Whether or not to skip the build using the '--no-build' flag (defaults to true).
-      #   skip-build: # optional, default is true
+        skip-build: false # optional, default is true
