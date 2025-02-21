@@ -32,6 +32,7 @@ jobs:
         tree .
         cp BenchEntry/*.cs benchTmp
         tree benchTmp
+        cat benchTmp/UnitTest1.cs
           
     - name: T
       uses: EasyDesk/action-dotnet-test@v1.0.0
