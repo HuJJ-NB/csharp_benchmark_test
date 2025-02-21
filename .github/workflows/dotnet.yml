@@ -30,7 +30,7 @@ jobs:
       with:
         path: bench # optional, default is .
         skip-build: false # optional, default is true
-        test-args: --logger:"trx;LogFileName=logFile.txt"
+        test-args: --logger:"trx"
         
     - name: new2
       run: |
@@ -40,4 +40,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: test-results
-        path: logFile.txt
+        path: bench/TestResults
