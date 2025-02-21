@@ -1,6 +1,6 @@
 namespace benchTmp;
 
-public class Tests
+public class TestLib
 {
     public static int Mul(int a, int b)
     {
@@ -25,9 +25,9 @@ namespace MyTestProject
         [Test]
         public void TestAddition()
         {
-            var result1 = Tests.Mul(4, 5);
+            var result1 = TestLib.Mul(4, 5);
             Assert.AreEqual(20, result1);
-            var result2 = Tests.Add(4, 5);
+            var result2 = TestLib.Add(4, 5);
             Assert.AreEqual(9, result2);
         }
     }
