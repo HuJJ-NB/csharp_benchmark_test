@@ -1,3 +1,6 @@
+using NUnit.Framework;
+using System.Reflection;
+
 public class Tests
 {
     public int Mul(int a, int b)
