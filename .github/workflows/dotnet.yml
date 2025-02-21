@@ -30,11 +30,7 @@ jobs:
       with:
         path: bench # optional, default is .
         skip-build: false # optional, default is true
-        test-args: --logger:"trx"
-        
-    - name: new2
-      run: |
-        tree
+        test-args: --logger:"html"
 
     - name: Upload test results
       uses: actions/upload-artifact@v4
