@@ -29,6 +29,7 @@ jobs:
     - name: new
       run: |
         dotnet new nunit -n benchTmp
+        cp BenchEntry/.* benchTmp
         tree benchTmp
           
     - name: T
