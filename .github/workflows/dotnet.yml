@@ -22,7 +22,9 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Create test dir
-      run: dotnet new nunit -n bench
+      run: |
+        dotnet new nunit -n bench
+        ls -la
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
