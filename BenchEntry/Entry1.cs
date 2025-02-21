@@ -19,8 +19,6 @@ namespace MyTestProject
     [TestFixture]
     public class Tests2
     {
-        private Assembly _assembly;
-
         [SetUp]
         public void Setup()
         {
@@ -28,9 +26,9 @@ namespace MyTestProject
         [Test]
         public void TestAddition()
         {
-            var result1 = Test.Mul(4, 5);
+            var result1 = Tests.Mul(4, 5);
             Assert.AreEqual(20, result1);
-            var result2 = Test.Add(4, 5);
+            var result2 = Tests.Add(4, 5);
             Assert.AreEqual(9, result2);
         }
     }
