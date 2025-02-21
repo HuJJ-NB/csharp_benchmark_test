@@ -19,17 +19,17 @@ jobs:
       uses: actions/setup-dotnet@v4.3.0
       with:
         dotnet-version: 8.0.x
-
-    - name: Run  -  Opt
-      run: |
-        mkdir -p build/Output
-        csc testcase/test1.cs -o build/Output/test1.dll
         
     - name: new
       run: |
         dotnet new nunit -n bench
         cp BenchEntry/*.cs bench
-          
+
+    - name: Run  -  Opt
+      run: |
+        mkdir -p build/Output
+        csc /out:build/Output/test1.dll testcase/test1.cs
+        
     - name: Test  -  Build BenchMark
       uses: EasyDesk/action-dotnet-build@v1.0.0
       with:
