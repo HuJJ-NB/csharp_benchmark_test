@@ -19,6 +19,11 @@ jobs:
       uses: actions/setup-dotnet@v4.3.0
       with:
         dotnet-version: 8.0.x
+
+    - name: Run  -  Opt
+      run: |
+        mkdir -p build/Output
+        csc testcase/test1.cs -o build/Output/test1.dll
         
     - name: new
       run: |
@@ -29,6 +34,7 @@ jobs:
       uses: EasyDesk/action-dotnet-build@v1.0.0
       with:
         path: bench # optional, default is .
+        arg: --lib build/Output
     - name: Test  -  Run BenchMark
       uses: EasyDesk/action-dotnet-test@v1.0.0
       with:
