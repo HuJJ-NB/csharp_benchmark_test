@@ -24,6 +24,7 @@ jobs:
       run: |
         dotnet new nunit -n bench
         cp BenchEntry/*.cs bench
+        tree
 
     - name: Run  -  Opt
       run: |
