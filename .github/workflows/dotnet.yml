@@ -21,13 +21,14 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
-    - name: Create test dir
-      run: |
-        dotnet new nunit -n bench
-        ls -la
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+    - name: T
+      uses: EasyDesk/action-dotnet-test@v1.0.0
+      # with:
+      #   # Additional arguments to pass to 'dotnet test'.
+      #   test-args: # optional
+      #   # The build configuration to use (defaults to 'Release').
+      #   build-configuration: # optional, default is Release
+      #   # The path to the project or solution to test (defaults to the current directory).
+      #   path: # optional, default is .
+      #   # Whether or not to skip the build using the '--no-build' flag (defaults to true).
+      #   skip-build: # optional, default is true
