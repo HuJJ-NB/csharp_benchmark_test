@@ -30,10 +30,10 @@ jobs:
       with:
         path: bench # optional, default is .
         skip-build: false # optional, default is true
-        test-args: --logger
+        test-args: -v
 
-    - name: Upload test results
-      uses: actions/upload-artifact@v4
-      with:
-        name: test-results
-        path: test-result.xml
+    # - name: Upload test results
+    #   uses: actions/upload-artifact@v4
+    #   with:
+    #     name: test-results
+    #     path: test-result.xml
