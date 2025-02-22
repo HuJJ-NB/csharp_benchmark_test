@@ -1,9 +1,7 @@
-namespace benchTmp;
-
-using TestForAddMul;
+namespace bench;
 
 [TestFixture]
-public class Tests2
+public class Tests
 {
     [SetUp]
     public void Setup()
@@ -12,14 +10,13 @@ public class Tests2
     [Test]
     public void TestAddition()
     {
-        var result = AddMul.Add(4, 5);
+        var result = AddMulTest.Add(4, 5);
         Assert.That(result, Is.EqualTo(9));
     }
     [Test]
     public void TestMul()
     {
-        var result = AddMul.Mul(4, 5);
+        var result = AddMulTest.Mul(4, 5);
         Assert.That(result, Is.EqualTo(20));
     }
 }
-
