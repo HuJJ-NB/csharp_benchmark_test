@@ -22,33 +22,23 @@ jobs:
         
     - name: Run  -  Opt
       run: |
+        dotnet new nunit -n bench
+        cp BenchEntry/Entry.cs bench/UnitTest1.cs
+        cp BenchEntry/bench.csproj bench/bench.csproj
         sudo apt-get update
         sudo apt-get install -y mono-complete
         mkdir -p build/Output
-        mcs /target:library /out:build/Output/test1.dll testcase/test1.cs
-        
-    - name: new
-      run: |
-        dotnet new nunit -n bench
-        cp BenchEntry/*.cs bench
+        mcs /target:library /out:build/Output/AddMulTest.dll testcase/AddMulTest.cs
         tree
-        cat bench/bench.csproj
-        echo ${pwd}
-        # echo """
-        # <ItemGroup>
-        #   <Reference Include="Test1">
-        #     <HintPath>{{  }}/build/Output/test1.dll</HintPath>
-        #   </Reference>
-        # </ItemGroup>""" >> bench/bench.csproj
         
-    # - name: Test  -  Build BenchMark
-    #   uses: EasyDesk/action-dotnet-build@v1.0.0
-    #   with:
-    #     path: bench # optional, default is .
-    #     build-args: --reference build/Output/test1.dll
-    # - name: Test  -  Run BenchMark
-    #   uses: EasyDesk/action-dotnet-test@v1.0.0
-    #   with:
-    #     path: bench # optional, default is .
-    #     test-args: -v n
+    - name: Test  -  Build BenchMark
+      uses: EasyDesk/action-dotnet-build@v1.0.0
+      with:
+        path: bench # optional, default is .
+        build-args: --reference build/Output/test1.dll
+    - name: Test  -  Run BenchMark
+      uses: EasyDesk/action-dotnet-test@v1.0.0
+      with:
+        path: bench # optional, default is .
+        test-args: -v n
 
