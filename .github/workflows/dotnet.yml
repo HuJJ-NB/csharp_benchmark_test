@@ -25,6 +25,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y mono-complete
         mkdir -p build/Output
+        dotnet new nunit -n build/Output
         mcs /target:library /out:build/Output/test1.dll testcase/test1.cs
         
     - name: new
