@@ -24,8 +24,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y mono-complete
-        mkdir -p build/Output
-        dotnet new nunit -n build/Output
+        mkdir -p build/Output && cd build
+        dotnet new -n Output && cd ..
         mcs /target:library /out:build/Output/test1.dll testcase/test1.cs
         
     - name: new
