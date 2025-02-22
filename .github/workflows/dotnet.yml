@@ -24,17 +24,22 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y mono-complete
-        mkdir -p build/Output && cd build
-        dotnet new -n Output && cd ..
+        mkdir -p build/Output
         mcs /target:library /out:build/Output/test1.dll testcase/test1.cs
         
     - name: new
       run: |
         dotnet new nunit -n bench
-        dotnet add refence build/Output/opt.scpoorj
         cp BenchEntry/*.cs bench
         tree
         cat bench/bench.csproj
+        echo ${pwd}
+        # echo """
+        # <ItemGroup>
+        #   <Reference Include="Test1">
+        #     <HintPath>{{  }}/build/Output/test1.dll</HintPath>
+        #   </Reference>
+        # </ItemGroup>""" >> bench/bench.csproj
         
     # - name: Test  -  Build BenchMark
     #   uses: EasyDesk/action-dotnet-build@v1.0.0
