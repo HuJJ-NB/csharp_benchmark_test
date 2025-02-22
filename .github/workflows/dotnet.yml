@@ -23,12 +23,21 @@ jobs:
     - name: Run  -  Opt
       run: |
         dotnet new nunit -n bench
-        cat bench/bench.csproj
+        tree
+
+        echo " "
+        cat bench/UnitTest1.cs
         rm bench/UnitTest1.cs
         mv BenchEntry/Entry.cs bench/Entry.cs
-        mv BenchEntry/bench.csproj bench/bench.csproj
         cat bench/Entry.cs
+       
+        echo " "
         cat bench/bench.csproj
+        mv BenchEntry/bench.csproj bench/bench.csproj
+        cat bench/bench.csproj
+        
+        mv BenchEntry/GlobalUsings.cs bench/GlobalUsings.cs
+        
         sudo apt-get update
         sudo apt-get install -y mono-complete
         mkdir -p build/Output
